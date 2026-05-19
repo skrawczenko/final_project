@@ -7,7 +7,6 @@ def emotion_detector(text_to_analyse):
   header = {"grpc-metadata-mm-model-id": "emotion_aggregated-workflow_lang_en_stock"}
   response = requests.post(url, json = myobj, headers=header)   
   formatted_response = json.loads(response.text)
-  label = formatted_response['documentSentiment']['label'] 
-  score = formatted_response['documentSentiment']['score']
-  return {'label': label, 'score': score}
+  emotion = formatted_response['emotionPredictions'][0]['emotion'] 
+  return {'emotion': emotion }}
 
