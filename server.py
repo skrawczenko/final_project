@@ -15,7 +15,7 @@ def emo_detection():
     return (
       "For the given statement, the system response is "
       f"{emotion}"
-    }
+    ) 
     # TODO
 
 @app.route("/")
