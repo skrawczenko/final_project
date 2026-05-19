@@ -12,7 +12,7 @@ def sent_analyzer():
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
     emotion = response['emotion']
-    return "For the given statement, the system response is ", emotion)
+    return "For the given statement, the system response is ", emotion
     # TODO
 
 @app.route("/")
