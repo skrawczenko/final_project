@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 app = Flask("Emotion Detector")
 @app.route("/emotionDetector")
-def emotion_detection():
+def emo_detection():
     ''' This code receives the text from the HTML interface and 
         runs sentiment analysis over it using sentiment_analysis()
         function. The output returned shows the label and its confidence 
@@ -11,7 +11,8 @@ def emotion_detection():
     '''
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
-    emotion = response['emotion']
+    emotion = responsee
+    print response
     return "For the given statement, the system response is ", emotion
     # TODO
 
