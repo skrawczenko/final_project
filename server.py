@@ -12,7 +12,7 @@ def emo_detection():
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
     emotion = responsee
-    print response
+    print(response)
     return "For the given statement, the system response is ", emotion
     # TODO
 
