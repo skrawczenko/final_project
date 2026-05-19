@@ -12,8 +12,10 @@ def emo_detection():
     text_to_analyze = request.args.get('textToAnalyze')
     response = emotion_detector(text_to_analyze)
     emotion = response
-    print(response)
-    return "For the given statement, the system response is ", emotion
+    return (
+      "For the given statement, the system response is "
+      f"{emotion}"
+    }
     # TODO
 
 @app.route("/")
