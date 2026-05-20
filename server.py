@@ -12,7 +12,7 @@ def emo_detection():
     '''
     text_to_analyze = request.args.get('textToAnalyze')
     print(text_to_analyze)
-    if text_to_analyze is None:
+    if not text_to_analyze:
         return "Bad Request", 400
     response = emotion_detector(text_to_analyze)
     emotion = response
