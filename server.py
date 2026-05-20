@@ -1,5 +1,5 @@
 """Flask server for emotion detection."""
-from flask import Flask, render_template, request 
+from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask("Emotion Detector")
@@ -11,13 +11,11 @@ def emo_detection():
         score for the provided text.
     '''
     text_to_analyze = request.args.get('textToAnalyze')
+    if text_to_analyze is None:
+        return "Bad Request", 400
     response = emotion_detector(text_to_analyze)
     emotion = response
     return (
-      "For the given statement, the system response is "
-      f"{emotion}"
-    ) 
-    print(
         f"For the given statement, the system response is "
         f"'anger': {emotion['anger']}, "
         f"'disgust': {emotion['disgust']}, "
@@ -29,7 +27,7 @@ def emo_detection():
 
 @app.route("/")
 def render_index_page():
-    # This function initiates the rendering of the main application  page over the Flask channel
+    """Detect emotions from input text and return results."""
     return render_template('index.html')
 
 if __name__ == "__main__":
